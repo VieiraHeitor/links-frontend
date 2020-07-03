@@ -19,5 +19,7 @@
     }
 
 }
-
+.border-transparent{
+    border-color: rgba($color: #000000, $alpha: 0) !important;
+}
 
