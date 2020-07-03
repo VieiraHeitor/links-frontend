@@ -1,6 +1,8 @@
-import {apiPost, apiGet} from '../helpers/api';
+import {apiPost, apiGet, apiPut} from '../helpers/api';
 
 export const LINK_CREATE ='LINK_CREATE';
+
+export const LINK_UPDATE ='LINK_UPDATE';
 export const LINK_LIST ='LINK_LIST';
 export const LINK_GET ='LINK_GET';
 
@@ -10,6 +12,12 @@ export const linkCreate = (data ) =>{
     const payload = apiPost('/link',{...data, isSocial});
 
     return {type: LINK_CREATE, payload}
+};
+export const linkUpdate = (id, data ) =>{
+    const isSocial = !!data.isSocial;
+    const payload = apiPut(`/link/${id}`,{...data, isSocial});
+
+    return {type: LINK_UPDATE, payload}
 };
 
 export const linkList = (data ) =>{
