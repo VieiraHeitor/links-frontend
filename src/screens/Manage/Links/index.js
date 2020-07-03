@@ -9,8 +9,7 @@ const Links = ({links, linkList}) => {
 
     useEffect(()=>{
        linkList(); 
-    },[linkList]);
-
+    },[links, linkList]);
 
     return(
         <Layout>
@@ -25,8 +24,7 @@ const Links = ({links, linkList}) => {
             </div>
             </div>
 
-            {links && links.length 
-            ? links.map(link =>{
+            {links && links.length ? links.map((link) =>{
                 return (
                     <div key={link.id} className='pb-2 pt-2 pl-3 pr-3 d-flex flex-row justify-content-between'>
                         <div className='pr-3'><img alt='placeholder' src='https://via.placeholder.com/100'></img></div>
@@ -35,11 +33,14 @@ const Links = ({links, linkList}) => {
                             <span className='text-primary clearfix'>{link.url}</span>
                         </div>
                         <div className='ml-auto p-2 clearfix'>
-                            <span>Edit</span>
+                            <Link to={`/manage/links/edit/${link.id}`}>
+                                <span>Edit</span>
+                            </Link>
                             <span>Delete</span>
                         </div>
-                    </div>)
-            }) :null};
+                    </div>
+                );
+            }) :null}
     </Layout>
     )
 };
@@ -47,4 +48,4 @@ const mapStateToProps = (state) =>{
     return {links: state.link.links}
 };
 
-export default connect(mapStateToProps, {linkList})( Links);
+export default connect(mapStateToProps, {linkList})(Links);
