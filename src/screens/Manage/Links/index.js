@@ -9,7 +9,7 @@ const Links = ({links, linkRemove,linkToRemove, linkList, setLinkToRemove}) => {
 
     useEffect(()=>{
        linkList(); 
-    },[links, linkList]);
+    },[linkList]);
 
     const cancelDelete = (e) => setLinkToRemove(null);
     const confirmDelete = (e) => (linkToRemove ? linkRemove(linkToRemove) : null); 

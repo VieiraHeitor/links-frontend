@@ -27,7 +27,6 @@ export const setLinkToRemove = (link) =>{
 
 export const linkList = (data ) =>{
     const payload = apiGet('/link');
-
     return {type: LINK_LIST, payload}
 };
 export const linkGet = (id ) =>{
