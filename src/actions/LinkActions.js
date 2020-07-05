@@ -35,7 +35,6 @@ export const linkGet = (id ) =>{
 };
 
 export const linkRemove= (link) =>{
-    console.log('***LINKREMOVE.action.link', link.id)
     const payload = apiDelete(`/link/${link.id}`);
     return {type: LINK_REMOVE, payload}
 };
